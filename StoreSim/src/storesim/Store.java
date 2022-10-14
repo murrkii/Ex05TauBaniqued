@@ -23,9 +23,15 @@ public class Store {
   }
   
   public void sellItem(int index){
-    // check if index is within the size of the itemList (if not, print statement that there are only x items in the store)
-    // get Item at index from itemList and add its cost to earnings
-    // print statement indicating the sale
+    if (index < itemList.size()){
+        double cost = itemList.get(index).getCost();
+        earnings += cost;
+        System.out.printf("%n%You sold %s for %.2f%n", itemList.get(index).getName(), cost);
+    }
+    
+    else {  
+        System.out.printf("%nThere are only %s items in the store.", itemList.size());
+    }
   }
   
   public void sellItem(String name){
